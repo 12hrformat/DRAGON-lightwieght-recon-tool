@@ -3,7 +3,7 @@
 #MADE BY DRAGON
 #PLEASE DONT STELA I SPENT TIME ON THIS
 #if you wanna however support me or make some changes you can contact me on discord (atmoic._dragon)
-#HOURS WASTED ON THIS------> 2
+#HOURS WASTED ON THIS------> 2.2
 
 import time
 import argparse
