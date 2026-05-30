@@ -1,97 +1,123 @@
 # DRAGON Recon CLI 🚀
 
-A lightweight Python-based recon automation tool that orchestrates common OSINT and vulnerability enumeration utilities from a single interface.
+A lightweight Python-based reconnaissance automation tool that orchestrates multiple OSINT and enumeration utilities through a single command-line interface.
 
-## What it does
+## Features
 
-- Checks for required recon tools and installs or updates them via `apt-get` when possible ✅
-- Displays a startup `CHECKING` animation and a `DRAGON` banner 🎬
-- Supports running all tools or a selected subset ⚡
-- Saves combined scan output to a single file 📄
-- Handles `Ctrl+C` interrupts gracefully with a friendly exit message ⛔
+* Automatically checks for required reconnaissance tools and installs or updates them using `apt-get` when available.
+* Displays a startup `CHECKING` animation and a custom `DRAGON` banner.
+* Run all supported tools at once or select specific tools as needed.
+* Save combined scan output to a single file for easy review.
+* Gracefully handles `Ctrl+C` interruptions with a clean exit message.
 
-## Included files 📁
+---
 
-- `dragon.py` — main CLI script
-- `dragon` — executable wrapper to launch the CLI from the current folder
-- `setup.sh` — helper script to install dependencies and create a symlink for the wrapper
+## Project Structure
 
-## Requirements ✅
+* `dragon.py` — Main CLI application
+* `dragon` — Executable wrapper for launching the tool
+* `setup.sh` — Installation helper script that installs dependencies and creates a system-wide launcher
 
-- Linux with `apt-get`
-- Python 3
-- Root privileges to install or update required tools
+---
 
-## Installation 🛠️
+## Requirements
 
-1. Clone or download this repository.
+* Linux-based operating system
+* Python 3.x
+* `apt-get` package manager
+* Root privileges (required for automatic tool installation and updates)
+
+---
+
+## Installation
+
+Clone the repository:
 
 ```bash
-git clone https://github.com/12hrformat/DRAGON-lightwieght-recon-tool.git
+git clone https://github.com/12hrformat/DRAGON-lightweight-recon-tool.git
 ```
-2. Open a terminal in the project folder. (The name can be different)
+
+Move into the project directory:
 
 ```bash
-cd DRAGON-lightwieght-recon-tool.git
+cd DRAGON-lightweight-recon-tool
 ```
-3. Run the setup script:
+
+Run the setup script:
 
 ```bash
 sudo bash setup.sh
 ```
 
-This should install any missing packages and create a `dragon` wrapper for easier execution.
+The setup script will install available dependencies and create the `dragon` launcher for easier execution.
+
+---
 
 ## Usage
 
-Run the tool with a target URL and selected tools:
+### Run All Supported Tools
 
 ```bash
 sudo python3 dragon.py --all -u example.com
 ```
 
-Run only selected tools:
+### Run Specific Tools
 
 ```bash
 sudo python3 dragon.py -u example.com -t whatweb nslookup dig httpx
 ```
 
-Show the banner and help information:
+### Display Banner and Help Information
 
 ```bash
 sudo python3 dragon.py --dragon
 ```
 
-Save results to a custom file:
+### Save Results to a Custom Output File
 
 ```bash
 sudo python3 dragon.py --all -u example.com -o recon_results.txt
 ```
 
-Use the wrapper once installed:
+### Use the Installed Wrapper
 
 ```bash
-sudo ./dragon --all -u example.com
+sudo dragon --all -u example.com
 ```
 
-## Supported tools 🧰
+---
 
-- `whatweb`
-- `nslookup`
-- `dig`
-- `nuclei`
-- `amass`
-- `gobuster`
-- `ffuf`
-- `nikto`
-- `dirbuster`
-- `httpx`
+## Supported Tools
 
-## Notes 💡
+* whatweb
+* nslookup
+* dig
+* nuclei
+* amass
+* gobuster
+* ffuf
+* nikto
+* dirbuster
+* httpx
 
-- The script enforces running as root so it can install or update tools automatically.
-- If a tool is unavailable through `apt`, it will prompt you to install or update it manually.
-- `Ctrl+C` is handled with a shutdown message.
+---
 
-## This is an open-source project
-## CONTACT ME IF ANY PROBLEM --> INTAGRAM: 12hrformat
+## Notes
+
+* The application enforces root privileges to allow automatic installation and updating of supported tools.
+* Some tools may not be available through the default package repositories. In such cases, manual installation may be required.
+* Scan interruptions using `Ctrl+C` are handled gracefully.
+
+---
+
+## Disclaimer
+
+This tool is intended for educational purposes and authorized security testing only. Always obtain proper permission before scanning or testing systems that you do not own or manage.
+
+---
+
+## Contact
+
+If you encounter issues, have suggestions, or would like to contribute:
+
+Instagram: **@12hrformat**
