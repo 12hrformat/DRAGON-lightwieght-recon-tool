@@ -1,31 +1,40 @@
 # DRAGON Recon CLI 🚀
 
-A lightweight Python-based reconnaissance automation tool that orchestrates multiple OSINT and enumeration utilities through a single command-line interface.
+DRAGON is a lightweight reconnaissance tool built in Python that brings several commonly used recon and enumeration tools together under one interface. Instead of running multiple commands manually, DRAGON helps automate the process and keeps everything organized in one place.
+
+Whether you're doing a quick target overview or gathering information during a security assessment, DRAGON aims to make the workflow faster and more convenient.
 
 ## Features
 
-* Automatically checks for required reconnaissance tools and installs or updates them using `apt-get` when available.
-* Displays a startup `CHECKING` animation and a custom `DRAGON` banner.
-* Run all supported tools at once or select specific tools as needed.
-* Save combined scan output to a single file for easy review.
-* Gracefully handles `Ctrl+C` interruptions with a clean exit message.
+* Automatically checks for required tools on startup.
+* Installs or updates missing dependencies when possible.
+* Displays a custom `CHECKING` animation and DRAGON banner.
+* Run every supported tool at once or choose only the tools you need.
+* Save all scan results to a single output file.
+* Handles `Ctrl+C` gracefully without leaving a mess behind.
 
 ---
 
-## Project Structure
+## Included Files
 
-* `dragon.py` — Main CLI application
-* `dragon` — Executable wrapper for launching the tool
-* `setup.sh` — Installation helper script that installs dependencies and creates a system-wide launcher
+| File        | Description                   |
+| ----------- | ----------------------------- |
+| `dragon.py` | Main application              |
+| `dragon`    | Executable launcher           |
+| `setup.sh`  | Installation and setup script |
 
 ---
 
 ## Requirements
 
 * Linux-based operating system
-* Python 3.x
-* `apt-get` package manager
-* Root privileges (required for automatic tool installation and updates)
+* Python 3
+* `apt-get`
+* Root privileges
+
+> **Why does DRAGON require root?**
+>
+> On first launch, DRAGON checks for missing dependencies, updates existing tools when needed, and may install packages automatically. Root privileges are required for these system-level operations. Without elevated permissions, the tool would not be able to manage packages or update its required components.
 
 ---
 
@@ -49,13 +58,13 @@ Run the setup script:
 sudo bash setup.sh
 ```
 
-The setup script will install available dependencies and create the `dragon` launcher for easier execution.
+After installation, DRAGON will be ready to use.
 
 ---
 
 ## Usage
 
-### Run All Supported Tools
+### Run a Full Recon Scan
 
 ```bash
 sudo python3 dragon.py --all -u example.com
@@ -67,19 +76,19 @@ sudo python3 dragon.py --all -u example.com
 sudo python3 dragon.py -u example.com -t whatweb nslookup dig httpx
 ```
 
-### Display Banner and Help Information
+### Display the DRAGON Banner
 
 ```bash
 sudo python3 dragon.py --dragon
 ```
 
-### Save Results to a Custom Output File
+### Save Output to a File
 
 ```bash
 sudo python3 dragon.py --all -u example.com -o recon_results.txt
 ```
 
-### Use the Installed Wrapper
+### Use the Installed Launcher
 
 ```bash
 sudo dragon --all -u example.com
@@ -89,35 +98,44 @@ sudo dragon --all -u example.com
 
 ## Supported Tools
 
-* whatweb
-* nslookup
-* dig
-* nuclei
-* amass
-* gobuster
-* ffuf
-* nikto
-* dirbuster
-* httpx
+DRAGON currently supports:
+
+* WhatWeb
+* NSLookup
+* Dig
+* Nuclei
+* Amass
+* Gobuster
+* FFUF
+* Nikto
+* DirBuster
+* HTTPX
+
+More tools may be added in future releases.
 
 ---
 
 ## Notes
 
-* The application enforces root privileges to allow automatic installation and updating of supported tools.
-* Some tools may not be available through the default package repositories. In such cases, manual installation may be required.
-* Scan interruptions using `Ctrl+C` are handled gracefully.
+* DRAGON will attempt to install or update supported tools automatically when possible.
+* If a package is not available through your system repositories, manual installation may be required.
+* Pressing `Ctrl+C` at any time will safely stop execution.
+* Results from multiple tools can be combined into a single output file for easier review.
 
 ---
 
 ## Disclaimer
 
-This tool is intended for educational purposes and authorized security testing only. Always obtain proper permission before scanning or testing systems that you do not own or manage.
+This project is intended for educational purposes, lab environments, bug bounty programs, and authorized security testing only.
+
+Always ensure you have permission before scanning or testing any system. The user is solely responsible for how this software is used.
 
 ---
 
 ## Contact
 
-If you encounter issues, have suggestions, or would like to contribute:
+Found a bug? Have an idea for a feature? Feel free to reach out.
 
 Instagram: **@12hrformat**
+
+If you find this project useful, consider giving it a ⭐ on GitHub.
