@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Wrapper command for DRAGON recon CLI.
+# Run this file from the workspace or add the workspace directory to your PATH.
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)"
+if [ "$#" -eq 0 ]; then
+  exec python3 "$SCRIPT_DIR/dragon.py" --dragon
+else
+  exec python3 "$SCRIPT_DIR/dragon.py" "$@"
+fi
