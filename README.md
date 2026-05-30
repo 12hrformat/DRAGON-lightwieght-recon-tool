@@ -25,7 +25,15 @@ A lightweight Python-based recon automation tool that orchestrates common OSINT 
 ## Installation 🛠️
 
 1. Clone or download this repository.
-2. Open a terminal in the project folder.
+
+```bash
+git clone https://github.com/12hrformat/DRAGON-lightwieght-recon-tool.git
+```
+2. Open a terminal in the project folder. (The name can be different)
+
+```bash
+cd DRAGON-lightwieght-recon-tool.git
+```
 3. Run the setup script:
 
 ```bash
@@ -83,8 +91,7 @@ sudo ./dragon --all -u example.com
 
 - The script enforces running as root so it can install or update tools automatically.
 - If a tool is unavailable through `apt`, it will prompt you to install or update it manually.
-- `Ctrl+C` is handled gracefully with a shutdown message.
+- `Ctrl+C` is handled with a shutdown message.
 
-## License
-
-Add your preferred license here.
+## This is an open-source project
+## CONTACT ME IF ANY PROBLEM --> INTAGRAM: 12hrformat
