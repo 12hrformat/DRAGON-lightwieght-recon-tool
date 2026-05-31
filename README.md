@@ -49,7 +49,7 @@ git clone https://github.com/12hrformat/DRAGON-lightweight-recon-tool.git
 Move into the project directory:
 
 ```bash
-cd DRAGON-lightweight-recon-tool
+cd DRAGON-lightwieght-recon-tool
 ```
 
 Run the setup script:
